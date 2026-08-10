@@ -4,10 +4,10 @@
 }
 
 .page.active {
-  display: block;
+  display: block !important;
 }
 
-/* Custom Scrollbar for sleek look */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
