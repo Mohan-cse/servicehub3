@@ -5,7 +5,7 @@ const bookingState = {
   issues: []
 };
 
-// Replace this URL with your published Google Apps Script Web App Deployment URL
+// Published Google Apps Script Web App Deployment URL
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxTmUH-I6KXptllTZ5IrkALCUq5hRClat_YVnf5-bLBO23LMxcqup_L0TN7jILv8E7l/exec';
 
 // Page Navigation Logic
@@ -162,3 +162,8 @@ function handleStoreOrderSubmit(event) {
     submitBtn.textContent = 'Submit Order Request';
   });
 }
+
+// Automatically navigate to Home Page on initial load
+document.addEventListener('DOMContentLoaded', function () {
+  navigateTo('home-page');
+});
