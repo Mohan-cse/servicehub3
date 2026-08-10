@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- Animate.css for Smooth Animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="style.css" />
 
   <script>
     tailwind.config = {
@@ -31,10 +33,6 @@
       }
     }
   </script>
-  <style>
-    .page { display: none; }
-    .page.active { display: block; }
-  </style>
 </head>
 <body class="bg-black text-white font-sans min-h-screen flex flex-col justify-between pb-20 md:pb-0">
 
@@ -54,7 +52,7 @@
     <!-- Desktop Navigation -->
     <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-zinc-300">
       <button onclick="navigateTo('home-page')" class="hover:text-brand-accentBlue transition">Home</button>
-      <button onclick="navigateTo('repairs-page')" class="hover:text-brand-accentBlue transition">Repairs</button>
+      <button onclick="navigateTo('book-step1')" class="hover:text-brand-accentBlue transition">Repairs</button>
       <button onclick="navigateTo('store-page')" class="hover:text-brand-accentBlue transition">Store</button>
       <button onclick="navigateTo('track-page')" class="hover:text-brand-accentBlue transition">Track</button>
       <button onclick="navigateTo('videos-page')" class="hover:text-brand-accentBlue transition">Videos</button>
@@ -69,7 +67,7 @@
   <!-- MAIN CONTENT CONTAINER -->
   <main class="flex-grow max-w-2xl w-full mx-auto p-4">
 
-    <!-- 1. HOME PAGE -->
+    <!-- 1. HOME PAGE (active class added directly in HTML) -->
     <section id="home-page" class="page active space-y-6 animate__animated animate__fadeIn">
       <div class="text-center py-8 space-y-3">
         <div class="w-20 h-20 bg-zinc-900 border-2 border-brand-accentBlue text-brand-accentLime rounded-2xl flex items-center justify-center mx-auto text-3xl shadow-lg animate__animated animate__pulse animate__infinite">
@@ -148,7 +146,7 @@
       </div>
     </section>
 
-    <!-- 3. BOOKING STEP 2: DIAGNOSE ISSUE / FAULT -->
+    <!-- 3. BOOKING STEP 2: DIAGNOSE ISSUE -->
     <section id="book-step2" class="page space-y-6 animate__animated animate__fadeIn">
       <div class="flex items-center justify-between text-xs text-brand-textMuted uppercase tracking-wider">
         <span>Step 2 of 3</span>
@@ -339,14 +337,13 @@
       </div>
     </section>
 
-    <!-- 8. VIDEOS PAGE WITH INSTAGRAM LINK & CARDS -->
+    <!-- 8. VIDEOS PAGE -->
     <section id="videos-page" class="page space-y-6 animate__animated animate__fadeIn">
       <div class="space-y-1">
         <h2 class="text-xl font-bold">Repair Videos & Instagram Reels</h2>
-        <p class="text-xs text-brand-textMuted">Watch live repair procedures and micro-soldering solutions on our official Instagram page.</p>
+        <p class="text-xs text-brand-textMuted">Watch live repair procedures on our official Instagram page.</p>
       </div>
 
-      <!-- Main Instagram Call to Action Banner -->
       <a href="https://www.instagram.com/service_hub_31?igsh=MTdsYXp1dXNoaWNnYg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 p-4 rounded-xl flex items-center justify-between shadow-lg transform transition hover:scale-[1.02]">
         <div class="flex items-center space-x-3">
           <i class="fa-brands fa-instagram text-3xl text-white"></i>
@@ -358,7 +355,6 @@
         <i class="fa-solid fa-arrow-up-right-from-square text-white"></i>
       </a>
 
-      <!-- Video Grid -->
       <div class="space-y-3">
         <a href="https://www.instagram.com/service_hub_31?igsh=MTdsYXp1dXNoaWNnYg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex gap-3 items-center transform transition hover:scale-[1.01]">
           <div class="w-20 h-16 bg-black rounded-lg flex items-center justify-center text-pink-500 text-2xl relative">
@@ -378,17 +374,6 @@
           <div class="flex-grow">
             <h4 class="text-xs font-semibold text-white">Motherboard Micro-Soldering</h4>
             <p class="text-xs text-brand-textMuted">Advanced Chip Solutions & Diagnostics</p>
-          </div>
-          <i class="fa-solid fa-chevron-right text-xs text-zinc-600"></i>
-        </a>
-
-        <a href="https://www.instagram.com/service_hub_31?igsh=MTdsYXp1dXNoaWNnYg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex gap-3 items-center transform transition hover:scale-[1.01]">
-          <div class="w-20 h-16 bg-black rounded-lg flex items-center justify-center text-pink-500 text-2xl relative">
-            <i class="fa-solid fa-play"></i>
-          </div>
-          <div class="flex-grow">
-            <h4 class="text-xs font-semibold text-white">Battery & Water Damage Restoration</h4>
-            <p class="text-xs text-brand-textMuted">Complete Hardware Revival</p>
           </div>
           <i class="fa-solid fa-chevron-right text-xs text-zinc-600"></i>
         </a>
@@ -590,172 +575,7 @@
     </button>
   </nav>
 
-  <!-- JAVASCRIPT LOGIC & GOOGLE SHEETS SCRIPT -->
-  <script>
-    // State
-    const bookingState = {
-      brand: 'Apple',
-      model: 'iPhone 15 Pro',
-      issues: []
-    };
-
-    // Replace this URL with your published Google Apps Script Web App Deployment URL
-    const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
-
-    // Page Navigation Logic
-    function navigateTo(pageId) {
-      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-      const target = document.getElementById(pageId);
-      if (target) {
-        if (pageId === 'book-step3') {
-          updateSummary();
-        }
-        target.classList.add('active');
-        window.scrollTo(0, 0);
-      }
-    }
-
-    // Step 1: Select Brand & Model
-    function selectBrand(brand) {
-      bookingState.brand = brand;
-    }
-
-    function selectModel(model) {
-      bookingState.model = model;
-      document.getElementById('selected-device-label').textContent = model;
-      navigateTo('book-step2');
-    }
-
-    // Step 2: Toggle Issues
-    function toggleIssue(checkbox) {
-      if (checkbox.checked) {
-        bookingState.issues.push(checkbox.value);
-        checkbox.parentElement.classList.add('border-brand-teal', 'bg-brand-teal/10');
-      } else {
-        bookingState.issues = bookingState.issues.filter(i => i !== checkbox.value);
-        checkbox.parentElement.classList.remove('border-brand-teal', 'bg-brand-teal/10');
-      }
-    }
-
-    // Step 3: Update Summary
-    function updateSummary() {
-      document.getElementById('summary-device').textContent = `${bookingState.brand} ${bookingState.model}`;
-      document.getElementById('summary-issues').textContent = bookingState.issues.length > 0 ? bookingState.issues.join(', ') : 'General Inspection';
-    }
-
-    // Handle Booking Submission (Mobile Model, Name, Faults to Google Sheets)
-    function handleBookingSubmit(event) {
-      event.preventDefault();
-      
-      const submitBtn = document.getElementById('booking-submit-btn');
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
-
-      const bookingData = {
-        type: 'Repair Booking',
-        model: `${bookingState.brand} ${bookingState.model}`,
-        name: document.getElementById('booking-name').value,
-        faults: bookingState.issues.length > 0 ? bookingState.issues.join(', ') : 'General Inspection',
-        phone: document.getElementById('booking-phone').value,
-        timestamp: new Date().toISOString()
-      };
-
-      if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
-        console.log('Booking Data Collected:', bookingData);
-        alert(`Booking request submitted!\nName: ${bookingData.name}\nModel: ${bookingData.model}\nFaults: ${bookingData.faults}`);
-        completeBooking(bookingData);
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Confirm Booking';
-        return;
-      }
-
-      fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bookingData)
-      })
-      .then(() => {
-        completeBooking(bookingData);
-      })
-      .catch(error => {
-        console.error('Error submitting booking:', error);
-        alert('There was an issue submitting your booking. Please try again.');
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Confirm Booking';
-      });
-    }
-
-    function completeBooking(data) {
-      const trackingId = '#SH-' + Math.floor(100000 + Math.random() * 900000);
-      document.getElementById('confirmed-tracking-id').textContent = trackingId;
-      document.getElementById('confirmed-device').textContent = data.model;
-      navigateTo('book-confirmed');
-    }
-
-    // Track Form Submit
-    function handleTrack(event) {
-      event.preventDefault();
-      alert('Status: In Diagnosis. Technicians are inspecting your device.');
-    }
-
-    // Accessories Store Order Modal Logic
-    function openOrderModal(productName) {
-      document.getElementById('modal-product-name').value = productName;
-      document.getElementById('order-modal').classList.remove('hidden');
-    }
-
-    function closeOrderModal() {
-      document.getElementById('order-modal').classList.add('hidden');
-    }
-
-    function handleStoreOrderSubmit(event) {
-      event.preventDefault();
-      
-      const submitBtn = document.getElementById('order-submit-btn');
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
-
-      const orderData = {
-        type: 'Accessory Order',
-        product: document.getElementById('modal-product-name').value,
-        name: document.getElementById('order-user-name').value,
-        phone: document.getElementById('order-user-phone').value,
-        email: document.getElementById('order-user-email').value,
-        timestamp: new Date().toISOString()
-      };
-
-      if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
-        console.log('Order Data Collected:', orderData);
-        alert(`Order request submitted for ${orderData.product}!\nName: ${orderData.name}\nPhone: ${orderData.phone}`);
-        closeOrderModal();
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit Order Request';
-        return;
-      }
-
-      fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(orderData)
-      })
-      .then(() => {
-        alert('Your accessory order request has been submitted successfully!');
-        closeOrderModal();
-        document.getElementById('store-order-form').reset();
-      })
-      .catch(error => {
-        console.error('Error submitting order:', error);
-        alert('There was an issue submitting your order. Please try again.');
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit Order Request';
-      });
-    }
-  </script>
+  <!-- External Script -->
+  <script src="script.js"></script>
 </body>
 </html>
