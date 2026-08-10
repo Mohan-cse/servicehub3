@@ -66,15 +66,6 @@ function handleBookingSubmit(event) {
     timestamp: new Date().toISOString()
   };
 
-  if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
-    console.log('Booking Data Collected:', bookingData);
-    alert(`Booking request submitted!\nName: ${bookingData.name}\nModel: ${bookingData.model}\nFaults: ${bookingData.faults}`);
-    completeBooking(bookingData);
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Confirm Booking';
-    return;
-  }
-
   fetch(GOOGLE_SCRIPT_URL, {
     method: 'POST',
     mode: 'no-cors',
@@ -133,15 +124,6 @@ function handleStoreOrderSubmit(event) {
     timestamp: new Date().toISOString()
   };
 
-  if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
-    console.log('Order Data Collected:', orderData);
-    alert(`Order request submitted for ${orderData.product}!\nName: ${orderData.name}\nPhone: ${orderData.phone}`);
-    closeOrderModal();
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Submit Order Request';
-    return;
-  }
-
   fetch(GOOGLE_SCRIPT_URL, {
     method: 'POST',
     mode: 'no-cors',
@@ -163,7 +145,7 @@ function handleStoreOrderSubmit(event) {
   });
 }
 
-// Automatically navigate to Home Page on initial load
+// Force load Home Page on initial load
 document.addEventListener('DOMContentLoaded', function () {
   navigateTo('home-page');
 });
