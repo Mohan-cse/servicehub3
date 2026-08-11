@@ -245,16 +245,8 @@ function handleBookingSubmit(event) {
 }
 
 function completeBooking(data) {
-  const trackingId = '#SH-' + Math.floor(100000 + Math.random() * 900000);
-  document.getElementById('confirmed-tracking-id').textContent = trackingId;
   document.getElementById('confirmed-device').textContent = data.model;
   navigateTo('book-confirmed');
-}
-
-// Track Form Submit
-function handleTrack(event) {
-  event.preventDefault();
-  alert('Status: In Diagnosis. Technicians are inspecting your device.');
 }
 
 // Accessories Store Order Modal Logic
