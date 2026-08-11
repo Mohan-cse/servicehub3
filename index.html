@@ -34,18 +34,16 @@
     }
   </script>
 </head>
-<body class="bg-black text-white font-sans min-h-screen flex flex-col justify-between pb-20 md:pb-0">
+<body class="bg-black text-white font-sans min-h-screen flex flex-col justify-between pb-20 md:pb-0 relative">
+
+  <!-- BACKGROUND OVERLAY IMAGE -->
+  <div class="fixed inset-0 z-0 opacity-20 bg-cover bg-center pointer-events-none" style="background-image: url('image_9dcc42.jpg');"></div>
 
   <!-- TOP NAVIGATION HEADER -->
-  <header class="bg-zinc-950 border-b border-zinc-800 sticky top-0 z-40 px-4 py-3 flex items-center justify-between shadow-lg">
+  <header class="glass-nav bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/80 sticky top-0 z-40 px-4 py-3 flex items-center justify-between shadow-lg">
     <!-- Brand Logo and Name -->
     <div class="flex items-center space-x-3 cursor-pointer group" onclick="navigateTo('home-page')">
-      <div class="relative w-10 h-10 bg-zinc-900 border border-brand-accentBlue rounded-xl flex items-center justify-center p-1 transition-transform group-hover:scale-105">
-        <svg viewBox="0 0 100 100" class="w-full h-full">
-          <path d="M 25 20 Q 50 10 75 20 L 75 80 Q 50 90 25 80 Z" fill="none" stroke="#00AEEF" stroke-width="6"/>
-          <text x="50%" y="55%" text-anchor="middle" fill="#8CC63F" font-weight="bold" font-size="28" dy=".3em">SH</text>
-        </svg>
-      </div>
+      <img src="image_9dcc42.jpg" alt="serviceHub Logo" class="w-10 h-10 object-contain rounded-lg border border-brand-accentBlue/50 transition-transform group-hover:scale-105" />
       <span class="text-xl font-bold tracking-tight text-white">service<span class="text-brand-accentLime">Hub</span></span>
     </div>
     
@@ -54,43 +52,38 @@
       <button onclick="navigateTo('home-page')" class="hover:text-brand-accentBlue transition">Home</button>
       <button onclick="navigateTo('book-step1')" class="hover:text-brand-accentBlue transition">Repairs</button>
       <button onclick="navigateTo('store-page')" class="hover:text-brand-accentBlue transition">Store</button>
-      <button onclick="navigateTo('track-page')" class="hover:text-brand-accentBlue transition">Track</button>
       <button onclick="navigateTo('videos-page')" class="hover:text-brand-accentBlue transition">Videos</button>
       <button onclick="navigateTo('about-page')" class="hover:text-brand-accentBlue transition">About</button>
     </nav>
 
-    <button onclick="navigateTo('login-page')" class="w-9 h-9 bg-brand-teal hover:bg-brand-tealHover rounded-full flex items-center justify-center transition hover:scale-105">
+    <button onclick="navigateTo('login-page')" class="w-9 h-9 bg-brand-teal hover:bg-brand-tealHover rounded-full flex items-center justify-center transition hover:scale-105 shadow-md">
       <i class="fa-solid fa-user text-white text-sm"></i>
     </button>
   </header>
 
   <!-- MAIN CONTENT CONTAINER -->
-  <main class="flex-grow max-w-2xl w-full mx-auto p-4">
+  <main class="relative z-10 flex-grow max-w-2xl w-full mx-auto p-4">
 
     <!-- 1. HOME PAGE -->
     <section id="home-page" class="page active space-y-6 animate__animated animate__fadeIn">
       <div class="text-center py-8 space-y-3">
-        <div class="w-20 h-20 bg-zinc-900 border-2 border-brand-accentBlue text-brand-accentLime rounded-2xl flex items-center justify-center mx-auto text-3xl shadow-lg animate__animated animate__pulse animate__infinite">
-          <i class="fa-solid fa-screwdriver-wrench"></i>
+        <div class="w-24 h-24 bg-zinc-900/80 border-2 border-brand-accentBlue text-brand-accentLime rounded-2xl flex items-center justify-center mx-auto text-3xl shadow-xl backdrop-blur-md animate__animated animate__pulse animate__infinite">
+          <img src="image_9dcc42.jpg" alt="serviceHub Logo" class="w-20 h-20 object-contain rounded-xl" />
         </div>
         <h1 class="text-3xl font-extrabold tracking-tight">Welcome to service<span class="text-brand-accentLime">Hub</span></h1>
         <p class="text-brand-textMuted text-sm max-w-md mx-auto">Expert hardware restoration & mobile repair solutions with clinical precision.</p>
       </div>
 
-      <div class="grid grid-cols-2 gap-4">
-        <button onclick="navigateTo('book-step1')" class="bg-gradient-to-br from-brand-teal to-teal-800 hover:from-teal-600 hover:to-brand-teal text-white p-4 rounded-xl text-left flex flex-col justify-between h-28 shadow-lg transition transform hover:-translate-y-1">
+      <div class="grid grid-cols-3 gap-3">
+        <button onclick="navigateTo('book-step1')" class="glass-card bg-gradient-to-br from-brand-teal/80 to-teal-900/80 hover:from-teal-600 hover:to-brand-teal text-white p-4 rounded-xl text-left flex flex-col justify-between h-28 shadow-lg transition transform hover:-translate-y-1 border border-brand-teal/50">
           <i class="fa-solid fa-calendar-check text-2xl"></i>
           <span class="font-semibold text-sm">Book Repair</span>
         </button>
-        <button onclick="navigateTo('track-page')" class="bg-zinc-900 hover:bg-zinc-800 text-white p-4 rounded-xl text-left flex flex-col justify-between h-28 transition border border-zinc-800 transform hover:-translate-y-1">
-          <i class="fa-solid fa-truck-fast text-2xl text-brand-accentBlue"></i>
-          <span class="font-semibold text-sm">Track Status</span>
-        </button>
-        <button onclick="navigateTo('store-page')" class="bg-zinc-900 hover:bg-zinc-800 text-white p-4 rounded-xl text-left flex flex-col justify-between h-28 transition border border-zinc-800 transform hover:-translate-y-1">
+        <button onclick="navigateTo('store-page')" class="glass-card bg-zinc-900/70 hover:bg-zinc-800/80 text-white p-4 rounded-xl text-left flex flex-col justify-between h-28 transition border border-zinc-800 transform hover:-translate-y-1">
           <i class="fa-solid fa-bag-shopping text-2xl text-brand-accentLime"></i>
           <span class="font-semibold text-sm">Accessories</span>
         </button>
-        <button onclick="navigateTo('videos-page')" class="bg-zinc-900 hover:bg-zinc-800 text-white p-4 rounded-xl text-left flex flex-col justify-between h-28 transition border border-zinc-800 transform hover:-translate-y-1">
+        <button onclick="navigateTo('videos-page')" class="glass-card bg-zinc-900/70 hover:bg-zinc-800/80 text-white p-4 rounded-xl text-left flex flex-col justify-between h-28 transition border border-zinc-800 transform hover:-translate-y-1">
           <i class="fa-solid fa-circle-play text-2xl text-red-500"></i>
           <span class="font-semibold text-sm">Repair Videos</span>
         </button>
@@ -101,50 +94,71 @@
     <section id="book-step1" class="page space-y-6 animate__animated animate__fadeIn">
       <div class="flex items-center justify-between text-xs text-brand-textMuted uppercase tracking-wider">
         <span>Step 1 of 3</span>
-        <span class="text-brand-accentLime font-bold">Select Device</span>
+        <span class="text-brand-accentLime font-bold">Select or Customize Device</span>
       </div>
       
-      <!-- Search Bar with Live Filter Input -->
+      <!-- Search Bar -->
       <div class="relative">
-        <input type="text" id="model-search-input" onkeyup="filterModels()" placeholder="Search your model..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl py-3 px-10 text-sm text-white focus:outline-none focus:border-brand-accentBlue transition" />
+        <input type="text" id="model-search-input" onkeyup="filterModels()" placeholder="Search your model..." class="w-full bg-zinc-900/80 border border-zinc-800 rounded-xl py-3 px-10 text-sm text-white focus:outline-none focus:border-brand-accentBlue transition backdrop-blur-md" />
         <i class="fa-solid fa-magnifying-glass absolute left-3 top-3.5 text-zinc-500 text-sm"></i>
       </div>
 
-      <!-- Popular Brands Buttons (Apple, Samsung, Google, OnePlus, Xiaomi, Vivo, Realme, Oppo) -->
+      <!-- Popular Brands Buttons -->
       <div class="space-y-3">
-        <h3 class="text-xs uppercase text-brand-textMuted tracking-wider font-semibold">Popular Brands</h3>
+        <h3 class="text-xs uppercase text-brand-textMuted tracking-wider font-semibold">Select Brand</h3>
         <div class="grid grid-cols-4 gap-2">
           <button id="brand-btn-Apple" onclick="selectBrand('Apple')" class="brand-btn bg-brand-teal text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105 border border-brand-teal">
             <i class="fa-brands fa-apple text-lg"></i> Apple
           </button>
-          <button id="brand-btn-Samsung" onclick="selectBrand('Samsung')" class="brand-btn bg-zinc-900 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
+          <button id="brand-btn-Samsung" onclick="selectBrand('Samsung')" class="brand-btn bg-zinc-900/80 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
             <i class="fa-solid fa-mobile-screen text-lg text-brand-accentBlue"></i> Samsung
           </button>
-          <button id="brand-btn-Google" onclick="selectBrand('Google')" class="brand-btn bg-zinc-900 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
+          <button id="brand-btn-Google" onclick="selectBrand('Google')" class="brand-btn bg-zinc-900/80 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
             <i class="fa-brands fa-google text-lg text-red-400"></i> Google
           </button>
-          <button id="brand-btn-OnePlus" onclick="selectBrand('OnePlus')" class="brand-btn bg-zinc-900 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
+          <button id="brand-btn-OnePlus" onclick="selectBrand('OnePlus')" class="brand-btn bg-zinc-900/80 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
             <i class="fa-solid fa-mobile text-lg text-brand-accentLime"></i> OnePlus
           </button>
-          <button id="brand-btn-Xiaomi" onclick="selectBrand('Xiaomi')" class="brand-btn bg-zinc-900 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
+          <button id="brand-btn-Xiaomi" onclick="selectBrand('Xiaomi')" class="brand-btn bg-zinc-900/80 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
             <i class="fa-solid fa-mobile-retro text-lg text-orange-400"></i> Xiaomi
           </button>
-          <button id="brand-btn-Vivo" onclick="selectBrand('Vivo')" class="brand-btn bg-zinc-900 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
+          <button id="brand-btn-Vivo" onclick="selectBrand('Vivo')" class="brand-btn bg-zinc-900/80 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
             <i class="fa-solid fa-mobile text-lg text-blue-400"></i> Vivo
           </button>
-          <button id="brand-btn-Realme" onclick="selectBrand('Realme')" class="brand-btn bg-zinc-900 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
+          <button id="brand-btn-Realme" onclick="selectBrand('Realme')" class="brand-btn bg-zinc-900/80 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
             <i class="fa-solid fa-mobile-button text-lg text-yellow-400"></i> Realme
           </button>
-          <button id="brand-btn-Oppo" onclick="selectBrand('Oppo')" class="brand-btn bg-zinc-900 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
+          <button id="brand-btn-Oppo" onclick="selectBrand('Oppo')" class="brand-btn bg-zinc-900/80 border border-zinc-800 text-white p-2.5 rounded-xl flex flex-col items-center gap-1 text-[11px] transition transform hover:scale-105">
             <i class="fa-solid fa-mobile text-lg text-emerald-400"></i> Oppo
+          </button>
+        </div>
+      </div>
+
+      <!-- CUSTOM BRAND & MODEL ENTRY OPTION -->
+      <div class="glass-card bg-zinc-900/70 border border-zinc-800 p-4 rounded-xl space-y-3">
+        <div class="flex items-center justify-between cursor-pointer" onclick="toggleCustomInputs()">
+          <h4 class="text-xs font-semibold text-brand-accentBlue uppercase tracking-wider">Can't find your Brand or Series? Enter Manually</h4>
+          <i id="custom-toggle-icon" class="fa-solid fa-chevron-down text-xs text-brand-textMuted"></i>
+        </div>
+        <div id="custom-device-inputs" class="hidden space-y-3 pt-2">
+          <div>
+            <label class="block text-xs text-brand-textMuted mb-1">CUSTOM BRAND NAME</label>
+            <input type="text" id="custom-brand-input" placeholder="e.g. Motorola, Asus, Techno" class="w-full bg-black/60 border border-zinc-700 rounded-lg py-2 px-3 text-xs text-white focus:outline-none focus:border-brand-accentBlue" />
+          </div>
+          <div>
+            <label class="block text-xs text-brand-textMuted mb-1">CUSTOM MODEL / SERIES</label>
+            <input type="text" id="custom-model-input" placeholder="e.g. Moto G84, ROG Phone 7" class="w-full bg-black/60 border border-zinc-700 rounded-lg py-2 px-3 text-xs text-white focus:outline-none focus:border-brand-accentBlue" />
+          </div>
+          <button onclick="applyCustomDevice()" class="w-full bg-brand-teal hover:bg-brand-tealHover text-white py-2 rounded-lg text-xs font-semibold transition">
+            Use Custom Device
           </button>
         </div>
       </div>
 
       <!-- Dynamic Models Container -->
       <div class="space-y-2">
-        <h3 class="text-xs uppercase text-brand-textMuted tracking-wider font-semibold">Select Model</h3>
-        <div id="models-list-container" class="bg-zinc-900 border border-zinc-800 rounded-xl divide-y divide-zinc-800 text-sm">
+        <h3 class="text-xs uppercase text-brand-textMuted tracking-wider font-semibold">Select Model Series</h3>
+        <div id="models-list-container" class="bg-zinc-900/80 border border-zinc-800 rounded-xl divide-y divide-zinc-800 text-sm backdrop-blur-md">
           <!-- Populated dynamically via JavaScript -->
         </div>
       </div>
@@ -163,32 +177,32 @@
       </div>
 
       <div class="grid grid-cols-2 gap-3">
-        <label class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2 cursor-pointer hover:border-brand-teal transition">
+        <label class="glass-card bg-zinc-900/80 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2 cursor-pointer hover:border-brand-teal transition">
           <input type="checkbox" name="issue" value="Cracked Screen" class="hidden" onchange="toggleIssue(this)">
           <i class="fa-solid fa-mobile-screen-button text-xl text-brand-accentBlue"></i>
           <span class="text-xs font-medium">Cracked Screen</span>
         </label>
-        <label class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2 cursor-pointer hover:border-brand-teal transition">
+        <label class="glass-card bg-zinc-900/80 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2 cursor-pointer hover:border-brand-teal transition">
           <input type="checkbox" name="issue" value="Battery Drainage" class="hidden" onchange="toggleIssue(this)">
           <i class="fa-solid fa-battery-quarter text-xl text-brand-accentLime"></i>
           <span class="text-xs font-medium">Battery Drainage</span>
         </label>
-        <label class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2 cursor-pointer hover:border-brand-teal transition">
+        <label class="glass-card bg-zinc-900/80 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2 cursor-pointer hover:border-brand-teal transition">
           <input type="checkbox" name="issue" value="Charging Port" class="hidden" onchange="toggleIssue(this)">
           <i class="fa-solid fa-plug text-xl text-brand-accentBlue"></i>
           <span class="text-xs font-medium">Charging Port</span>
         </label>
-        <label class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2 cursor-pointer hover:border-brand-teal transition">
+        <label class="glass-card bg-zinc-900/80 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2 cursor-pointer hover:border-brand-teal transition">
           <input type="checkbox" name="issue" value="Camera Failure" class="hidden" onchange="toggleIssue(this)">
           <i class="fa-solid fa-camera text-xl text-brand-accentLime"></i>
           <span class="text-xs font-medium">Camera Failure</span>
         </label>
-        <label class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2 cursor-pointer hover:border-brand-teal transition">
+        <label class="glass-card bg-zinc-900/80 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2 cursor-pointer hover:border-brand-teal transition">
           <input type="checkbox" name="issue" value="Software / Boot Loop" class="hidden" onchange="toggleIssue(this)">
           <i class="fa-solid fa-arrows-rotate text-xl text-brand-accentBlue"></i>
           <span class="text-xs font-medium">Software / Boot Loop</span>
         </label>
-        <label class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2 cursor-pointer hover:border-brand-teal transition">
+        <label class="glass-card bg-zinc-900/80 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2 cursor-pointer hover:border-brand-teal transition">
           <input type="checkbox" name="issue" value="Speaker / Mic" class="hidden" onchange="toggleIssue(this)">
           <i class="fa-solid fa-volume-high text-xl text-brand-accentLime"></i>
           <span class="text-xs font-medium">Speaker / Mic</span>
@@ -212,15 +226,15 @@
           <h3 class="text-sm font-semibold text-white">Your Information</h3>
           <div>
             <label class="block text-xs text-brand-textMuted mb-1">FULL NAME</label>
-            <input type="text" id="booking-name" required placeholder="Jane Doe" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl py-2.5 px-3 text-sm text-white focus:outline-none focus:border-brand-accentBlue" />
+            <input type="text" id="booking-name" required placeholder="Jane Doe" class="w-full bg-zinc-900/80 border border-zinc-800 rounded-xl py-2.5 px-3 text-sm text-white focus:outline-none focus:border-brand-accentBlue" />
           </div>
           <div>
             <label class="block text-xs text-brand-textMuted mb-1">PHONE NUMBER</label>
-            <input type="tel" id="booking-phone" required placeholder="+91 98765 43210" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl py-2.5 px-3 text-sm text-white focus:outline-none focus:border-brand-accentBlue" />
+            <input type="tel" id="booking-phone" required placeholder="+91 98765 43210" class="w-full bg-zinc-900/80 border border-zinc-800 rounded-xl py-2.5 px-3 text-sm text-white focus:outline-none focus:border-brand-accentBlue" />
           </div>
         </div>
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 space-y-2">
+        <div class="glass-card bg-zinc-900/80 border border-zinc-800 rounded-xl p-4 space-y-2">
           <h4 class="text-xs uppercase text-brand-textMuted tracking-wider font-semibold">Booking Summary</h4>
           <p class="text-sm font-bold text-brand-accentLime" id="summary-device">Apple iPhone 14 Pro</p>
           <p class="text-xs text-brand-textMuted" id="summary-issues">Cracked Screen, Battery Drainage</p>
@@ -243,11 +257,7 @@
         <p class="text-xs text-brand-textMuted">Your booking details have been received and saved. Bring your device to our store.</p>
       </div>
 
-      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-left space-y-3">
-        <div class="flex justify-between items-center border-b border-zinc-800 pb-2">
-          <span class="text-xs text-brand-textMuted">TRACKING ID</span>
-          <span class="text-sm font-mono font-bold text-brand-accentBlue" id="confirmed-tracking-id">#SH-892410</span>
-        </div>
+      <div class="glass-card bg-zinc-900/80 border border-zinc-800 rounded-xl p-4 text-left space-y-3">
         <div class="grid grid-cols-2 gap-2 text-xs">
           <div>
             <span class="text-brand-textMuted block">DEVICE</span>
@@ -264,84 +274,35 @@
         </div>
       </div>
 
-      <button onclick="navigateTo('home-page')" class="w-full bg-zinc-900 border border-zinc-800 text-white py-3 rounded-xl font-medium hover:bg-zinc-800 transition">
+      <button onclick="navigateTo('home-page')" class="w-full bg-zinc-900/80 border border-zinc-800 text-white py-3 rounded-xl font-medium hover:bg-zinc-800 transition">
         Back to Home
       </button>
     </section>
 
-    <!-- 6. ACCESSORIES STORE PAGE -->
+    <!-- 6. ACCESSORIES STORE PAGE (50+ PRODUCTS CATEGORIZED) -->
     <section id="store-page" class="page space-y-6 animate__animated animate__fadeIn">
       <div class="space-y-1">
-        <h2 class="text-xl font-bold">Accessories Store</h2>
-        <p class="text-xs text-brand-textMuted">Select an accessory to place an order request.</p>
+        <h2 class="text-xl font-bold">Mobile Accessories Catalog</h2>
+        <p class="text-xs text-brand-textMuted">Browse over 50+ quality accessories across top brands. Select an item to submit an order request.</p>
       </div>
 
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex flex-col justify-between transform transition hover:scale-105">
-          <div class="h-28 bg-black rounded-lg flex items-center justify-center mb-2">
-            <i class="fa-solid fa-shield-halved text-3xl text-brand-accentBlue"></i>
-          </div>
-          <h4 class="text-xs font-semibold text-white">Tactical Armor Case</h4>
-          <button onclick="openOrderModal('Tactical Armor Case')" class="mt-3 w-full bg-brand-teal hover:bg-brand-tealHover text-white py-1.5 rounded-lg text-xs font-medium transition">
-            Order Item
-          </button>
-        </div>
-        <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex flex-col justify-between transform transition hover:scale-105">
-          <div class="h-28 bg-black rounded-lg flex items-center justify-center mb-2">
-            <i class="fa-solid fa-bolt text-3xl text-brand-accentLime"></i>
-          </div>
-          <h4 class="text-xs font-semibold text-white">Braided USB-C Cable</h4>
-          <button onclick="openOrderModal('Braided USB-C Cable')" class="mt-3 w-full bg-brand-teal hover:bg-brand-tealHover text-white py-1.5 rounded-lg text-xs font-medium transition">
-            Order Item
-          </button>
-        </div>
-        <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex flex-col justify-between transform transition hover:scale-105">
-          <div class="h-28 bg-black rounded-lg flex items-center justify-center mb-2">
-            <i class="fa-solid fa-headphones text-3xl text-brand-accentBlue"></i>
-          </div>
-          <h4 class="text-xs font-semibold text-white">Wireless Earbuds</h4>
-          <button onclick="openOrderModal('Wireless Earbuds')" class="mt-3 w-full bg-brand-teal hover:bg-brand-tealHover text-white py-1.5 rounded-lg text-xs font-medium transition">
-            Order Item
-          </button>
-        </div>
-        <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex flex-col justify-between transform transition hover:scale-105">
-          <div class="h-28 bg-black rounded-lg flex items-center justify-center mb-2">
-            <i class="fa-solid fa-battery-full text-3xl text-brand-accentLime"></i>
-          </div>
-          <h4 class="text-xs font-semibold text-white">Power Core 10k</h4>
-          <button onclick="openOrderModal('Power Core 10k')" class="mt-3 w-full bg-brand-teal hover:bg-brand-tealHover text-white py-1.5 rounded-lg text-xs font-medium transition">
-            Order Item
-          </button>
-        </div>
+      <!-- Accessory Category Filter Tabs -->
+      <div class="flex overflow-x-auto gap-2 pb-2 text-xs scrollbar-none">
+        <button onclick="filterStoreCategory('all')" class="store-cat-btn bg-brand-teal text-white px-3 py-1.5 rounded-lg whitespace-nowrap">All Items</button>
+        <button onclick="filterStoreCategory('earbuds')" class="store-cat-btn bg-zinc-900/80 border border-zinc-800 text-brand-textMuted px-3 py-1.5 rounded-lg whitespace-nowrap">Earbuds & Audio</button>
+        <button onclick="filterStoreCategory('cases')" class="store-cat-btn bg-zinc-900/80 border border-zinc-800 text-brand-textMuted px-3 py-1.5 rounded-lg whitespace-nowrap">Back Cases</button>
+        <button onclick="filterStoreCategory('chargers')" class="store-cat-btn bg-zinc-900/80 border border-zinc-800 text-brand-textMuted px-3 py-1.5 rounded-lg whitespace-nowrap">Cables & Chargers</button>
+        <button onclick="filterStoreCategory('protection')" class="store-cat-btn bg-zinc-900/80 border border-zinc-800 text-brand-textMuted px-3 py-1.5 rounded-lg whitespace-nowrap">Screen Protectors</button>
+        <button onclick="filterStoreCategory('storage')" class="store-cat-btn bg-zinc-900/80 border border-zinc-800 text-brand-textMuted px-3 py-1.5 rounded-lg whitespace-nowrap">Storage & Gadgets</button>
+      </div>
+
+      <!-- Accessories Grid -->
+      <div id="store-products-grid" class="grid grid-cols-2 gap-3">
+        <!-- Rendered dynamically via JavaScript -->
       </div>
     </section>
 
-    <!-- 7. TRACK REPAIR PAGE -->
-    <section id="track-page" class="page space-y-6 animate__animated animate__fadeIn">
-      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 space-y-4">
-        <div class="space-y-1">
-          <span class="text-xs text-brand-accentBlue font-bold uppercase tracking-wider">Secure Access</span>
-          <h2 class="text-xl font-bold">Track Your Repair</h2>
-          <p class="text-xs text-brand-textMuted">Enter your details to view live diagnostic reports.</p>
-        </div>
-
-        <form onsubmit="handleTrack(event)" class="space-y-3">
-          <div>
-            <label class="block text-xs text-brand-textMuted mb-1">REGISTERED PHONE NUMBER</label>
-            <input type="tel" required placeholder="+91 98765 43210" class="w-full bg-black border border-zinc-800 rounded-xl py-2.5 px-3 text-sm text-white focus:outline-none focus:border-brand-accentBlue" />
-          </div>
-          <div>
-            <label class="block text-xs text-brand-textMuted mb-1">6-DIGIT TRACKING CODE</label>
-            <input type="text" placeholder="SH-892410" class="w-full bg-black border border-zinc-800 rounded-xl py-2.5 px-3 text-sm text-white focus:outline-none focus:border-brand-accentBlue" />
-          </div>
-          <button type="submit" class="w-full bg-brand-teal hover:bg-brand-tealHover text-white py-3 rounded-xl font-medium transition">
-            Track Status <i class="fa-solid fa-arrow-right ml-1"></i>
-          </button>
-        </form>
-      </div>
-    </section>
-
-    <!-- 8. VIDEOS PAGE -->
+    <!-- 7. VIDEOS PAGE (RENAMED TO SCREEN REPAIR PROCESS) -->
     <section id="videos-page" class="page space-y-6 animate__animated animate__fadeIn">
       <div class="space-y-1">
         <h2 class="text-xl font-bold">Repair Videos & Instagram Reels</h2>
@@ -360,18 +321,19 @@
       </a>
 
       <div class="space-y-3">
-        <a href="https://www.instagram.com/service_hub_31?igsh=MTdsYXp1dXNoaWNnYg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex gap-3 items-center transform transition hover:scale-[1.01]">
+        <a href="https://www.instagram.com/service_hub_31?igsh=MTdsYXp1dXNoaWNnYg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="glass-card bg-zinc-900/80 border border-zinc-800 rounded-xl p-3 flex gap-3 items-center transform transition hover:scale-[1.01]">
           <div class="w-20 h-16 bg-black rounded-lg flex items-center justify-center text-pink-500 text-2xl relative">
             <i class="fa-solid fa-play"></i>
           </div>
           <div class="flex-grow">
-            <h4 class="text-xs font-semibold text-white">iPhone 15 Screen Repair Process</h4>
+            <!-- Renamed video as requested -->
+            <h4 class="text-xs font-semibold text-white">Screen Repair Process</h4>
             <p class="text-xs text-brand-textMuted">Clinical Precision Display Replacement</p>
           </div>
           <i class="fa-solid fa-chevron-right text-xs text-zinc-600"></i>
         </a>
 
-        <a href="https://www.instagram.com/service_hub_31?igsh=MTdsYXp1dXNoaWNnYg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex gap-3 items-center transform transition hover:scale-[1.01]">
+        <a href="https://www.instagram.com/service_hub_31?igsh=MTdsYXp1dXNoaWNnYg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="glass-card bg-zinc-900/80 border border-zinc-800 rounded-xl p-3 flex gap-3 items-center transform transition hover:scale-[1.01]">
           <div class="w-20 h-16 bg-black rounded-lg flex items-center justify-center text-pink-500 text-2xl relative">
             <i class="fa-solid fa-play"></i>
           </div>
@@ -384,7 +346,7 @@
       </div>
     </section>
 
-    <!-- 9. ABOUT PAGE -->
+    <!-- 8. ABOUT PAGE (MAP, INSTAGRAM & WHATSAPP) -->
     <section id="about-page" class="page space-y-6 animate__animated animate__fadeIn">
       <div class="space-y-1">
         <span class="text-xs text-brand-accentLime font-bold uppercase tracking-wider">Authorized Lab</span>
@@ -392,7 +354,18 @@
         <p class="text-xs text-brand-textMuted">We merge clinical precision with expert craftsmanship. Our lab exists to reverse technical decay, restoring your hardware to exact specifications.</p>
       </div>
 
-      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 space-y-3">
+      <!-- Quick Social Buttons -->
+      <div class="grid grid-cols-2 gap-3">
+        <a href="https://chat.whatsapp.com/H1xEAEq5l0WEEKzvlXOlU4?s=cl&p=i&ilr=2" target="_blank" rel="noopener noreferrer" class="glass-card bg-emerald-950/40 border border-emerald-800/60 p-3 rounded-xl flex items-center justify-center gap-2 text-emerald-400 font-semibold text-xs hover:bg-emerald-900/50 transition">
+          <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Us
+        </a>
+        <a href="https://www.instagram.com/service_hub_31?igsh=MTdsYXp1dXNoaWNnYg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="glass-card bg-pink-950/40 border border-pink-800/60 p-3 rounded-xl flex items-center justify-center gap-2 text-pink-400 font-semibold text-xs hover:bg-pink-900/50 transition">
+          <i class="fa-brands fa-instagram text-lg"></i> Instagram Page
+        </a>
+      </div>
+
+      <!-- Operational Pillars -->
+      <div class="glass-card bg-zinc-900/80 border border-zinc-800 rounded-xl p-4 space-y-3">
         <h3 class="text-xs uppercase text-brand-textMuted tracking-wider font-semibold">Operational Pillars</h3>
         <div class="space-y-2 text-xs">
           <div class="flex items-start gap-2">
@@ -412,15 +385,30 @@
         </div>
       </div>
 
-      <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 space-y-2 text-xs">
-        <h3 class="text-xs uppercase text-brand-textMuted tracking-wider font-semibold">Command Center</h3>
+      <!-- Address & Embedded Google Maps -->
+      <div class="glass-card bg-zinc-900/80 border border-zinc-800 rounded-xl p-4 space-y-3 text-xs">
+        <h3 class="text-xs uppercase text-brand-textMuted tracking-wider font-semibold">Command Center & Location</h3>
         <p class="font-medium text-white">serviceHub Lab</p>
         <p class="text-brand-textMuted">Vaniyambadi bus stand, CL road, Tirupathur district, Tamil Nadu - 635751</p>
         <p class="text-brand-accentBlue font-semibold">Phone: 6383072054</p>
+        
+        <!-- Embedded Google Maps -->
+        <div class="w-full h-44 rounded-lg overflow-hidden border border-zinc-800 mt-2">
+          <iframe 
+            title="Google Maps Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3896.7891823485!2d78.6180!3d12.6840!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDQxJzAyLjQiTiA3OMKwMzcnMDQuOCJF!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
       </div>
     </section>
 
-    <!-- 10. AUTH: LOGIN PAGE -->
+    <!-- 9. AUTH: LOGIN PAGE -->
     <section id="login-page" class="page space-y-6 animate__animated animate__fadeIn">
       <div class="text-center space-y-1">
         <h2 class="text-2xl font-bold">Welcome Back</h2>
@@ -449,7 +437,7 @@
       </div>
     </section>
 
-    <!-- 11. AUTH: SIGNUP PAGE -->
+    <!-- 10. AUTH: SIGNUP PAGE -->
     <section id="signup-page" class="page space-y-6 animate__animated animate__fadeIn">
       <div class="text-center space-y-1">
         <h2 class="text-2xl font-bold">Create Account</h2>
@@ -483,7 +471,7 @@
       </div>
     </section>
 
-    <!-- 12. AUTH: FORGOT PASSWORD -->
+    <!-- 11. AUTH: FORGOT PASSWORD -->
     <section id="forgot-page" class="page space-y-6 animate__animated animate__fadeIn">
       <div class="text-center space-y-1">
         <h2 class="text-2xl font-bold">Reset Password</h2>
@@ -508,8 +496,8 @@
   </main>
 
   <!-- ACCESSORY ORDER MODAL -->
-  <div id="order-modal" class="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 hidden">
-    <div class="bg-zinc-900 border border-zinc-800 rounded-xl max-w-sm w-full p-5 space-y-4 animate__animated animate__zoomIn">
+  <div id="order-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
+    <div class="glass-card bg-zinc-900/90 border border-zinc-800 rounded-xl max-w-sm w-full p-5 space-y-4 animate__animated animate__zoomIn">
       <div class="flex justify-between items-center border-b border-zinc-800 pb-2">
         <h3 class="text-sm font-bold text-white">Order Accessory</h3>
         <button onclick="closeOrderModal()" class="text-brand-textMuted hover:text-white"><i class="fa-solid fa-xmark"></i></button>
@@ -518,19 +506,19 @@
       <form id="store-order-form" onsubmit="handleStoreOrderSubmit(event)" class="space-y-3">
         <div>
           <label class="block text-xs text-brand-textMuted mb-1">PRODUCT NAME</label>
-          <input type="text" id="modal-product-name" readonly class="w-full bg-black border border-zinc-800 rounded-xl py-2 px-3 text-sm text-brand-accentBlue font-semibold focus:outline-none" />
+          <input type="text" id="modal-product-name" readonly class="w-full bg-black/80 border border-zinc-800 rounded-xl py-2 px-3 text-sm text-brand-accentBlue font-semibold focus:outline-none" />
         </div>
         <div>
           <label class="block text-xs text-brand-textMuted mb-1">YOUR NAME</label>
-          <input type="text" id="order-user-name" required placeholder="Jane Doe" class="w-full bg-black border border-zinc-800 rounded-xl py-2 px-3 text-sm text-white focus:outline-none focus:border-brand-accentBlue" />
+          <input type="text" id="order-user-name" required placeholder="Jane Doe" class="w-full bg-black/80 border border-zinc-800 rounded-xl py-2 px-3 text-sm text-white focus:outline-none focus:border-brand-accentBlue" />
         </div>
         <div>
           <label class="block text-xs text-brand-textMuted mb-1">PHONE NUMBER</label>
-          <input type="tel" id="order-user-phone" required placeholder="+91 98765 43210" class="w-full bg-black border border-zinc-800 rounded-xl py-2 px-3 text-sm text-white focus:outline-none focus:border-brand-accentBlue" />
+          <input type="tel" id="order-user-phone" required placeholder="+91 98765 43210" class="w-full bg-black/80 border border-zinc-800 rounded-xl py-2 px-3 text-sm text-white focus:outline-none focus:border-brand-accentBlue" />
         </div>
         <div>
           <label class="block text-xs text-brand-textMuted mb-1">EMAIL ADDRESS</label>
-          <input type="email" id="order-user-email" required placeholder="jane@example.com" class="w-full bg-black border border-zinc-800 rounded-xl py-2 px-3 text-sm text-white focus:outline-none focus:border-brand-accentBlue" />
+          <input type="email" id="order-user-email" required placeholder="jane@example.com" class="w-full bg-black/80 border border-zinc-800 rounded-xl py-2 px-3 text-sm text-white focus:outline-none focus:border-brand-accentBlue" />
         </div>
 
         <button type="submit" id="order-submit-btn" class="w-full bg-brand-teal hover:bg-brand-tealHover text-white py-2.5 rounded-xl font-medium transition text-sm">
@@ -541,7 +529,7 @@
   </div>
 
   <!-- FOOTER & SOCIAL LINKS -->
-  <footer class="bg-zinc-950 border-t border-zinc-800 py-6 px-4 text-center space-y-4">
+  <footer class="glass-nav bg-zinc-950/80 border-t border-zinc-800 py-6 px-4 text-center space-y-4 relative z-10">
     <div class="flex justify-center items-center space-x-6">
       <!-- WhatsApp Link -->
       <a href="https://chat.whatsapp.com/H1xEAEq5l0WEEKzvlXOlU4?s=cl&p=i&ilr=2" target="_blank" rel="noopener noreferrer" class="text-brand-textMuted hover:text-green-500 transition text-lg flex items-center gap-2">
@@ -556,7 +544,7 @@
   </footer>
 
   <!-- MOBILE BOTTOM NAVIGATION -->
-  <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-zinc-950 border-t border-zinc-800 px-2 py-2 flex justify-around items-center z-40">
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 glass-nav bg-zinc-950/90 border-t border-zinc-800 px-2 py-2 flex justify-around items-center z-40">
     <button onclick="navigateTo('book-step1')" class="flex flex-col items-center gap-1 text-brand-textMuted hover:text-brand-accentBlue">
       <i class="fa-solid fa-wrench text-base"></i>
       <span class="text-[10px]">Repairs</span>
@@ -564,10 +552,6 @@
     <button onclick="navigateTo('store-page')" class="flex flex-col items-center gap-1 text-brand-textMuted hover:text-brand-accentBlue">
       <i class="fa-solid fa-bag-shopping text-base"></i>
       <span class="text-[10px]">Store</span>
-    </button>
-    <button onclick="navigateTo('track-page')" class="flex flex-col items-center gap-1 text-brand-textMuted hover:text-brand-accentBlue">
-      <i class="fa-solid fa-truck-fast text-base"></i>
-      <span class="text-[10px]">Track</span>
     </button>
     <button onclick="navigateTo('videos-page')" class="flex flex-col items-center gap-1 text-brand-textMuted hover:text-brand-accentBlue">
       <i class="fa-solid fa-circle-play text-base"></i>
